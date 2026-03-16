@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Portfolio - Trần Hà Phương</title>
+
+<!-- Font + Icon -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #cc2b5e);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    color: white;
+}
+
+@keyframes gradientBG {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    width:100%;
+    background: rgba(0,0,0,0.7);
+    padding:15px;
+    text-align:center;
+    z-index:1000;
+}
+
+nav a {
+    margin: 0 15px;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+nav a:hover {
+    color:#6dd5ed;
+}
+
+/* HEADER */
+header {
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+header img {
+    width:150px;
+    border-radius:50%;
+    margin-bottom:20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+.typing {
+    font-size:20px;
+    color:#6dd5ed;
+    margin-top:10px;
+}
+
+/* SECTION */
+section {
+    margin:50px auto;
+    width:80%;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding:25px;
+    border-radius:15px;
+    opacity:0;
+    transform:translateY(50px);
+    transition:0.6s;
+}
+
+section.show {
+    opacity:1;
+    transform:translateY(0);
+}
+
+h2 {
+    color:#6dd5ed;
+    margin-bottom:10px;
+}
+
+/* PROJECT CARD */
+.project {
+    margin:10px 0;
+    padding:15px;
+    background: rgba(0,0,0,0.5);
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.project:hover {
+    transform:scale(1.05);
+}
+
+/* BUTTON */
+button {
+    padding:10px 20px;
+    border:none;
+    border-radius:10px;
+    background:#6dd5ed;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+button:hover {
+    background:#2193b0;
+}
+
+footer {
+    text-align:center;
+    padding:20px;
+    opacity:0.7;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <a href="#about">Giới thiệu</a>
+    <a href="#skills">Kỹ năng</a>
+    <a href="#projects">Dự án</a>
+    <a href="#contact">Liên hệ</a>
+</nav>
+
+<!-- HEADER -->
+<header>
+    <img src="https://i.imgur.com/2DhmtJ4.png">
+    <h1>Trần Hà Phương</h1>
+    <div class="typing" id="typing"></div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>Thông tin cá nhân</h2>
+    <p>Họ tên: Trần Hà Phương</p>
+    <p>Ngày sinh: 04/09/2006</p>
+    <p>Mã sinh viên: 2414320016</p>
+    <p>Trường: Đại học Ngoại Thương</p>
+    <p>
+        Tôi là sinh viên có định hướng phát triển trong lĩnh vực tài chính và phân tích dữ liệu,
+        luôn chủ động học hỏi và phát triển bản thân.
+    </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2>Kỹ năng</h2>
+    <ul>
+        <li>Python</li>
+        <li>HTML, CSS, JavaScript</li>
+        <li>Data Analysis</li>
+    </ul>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2>Dự án</h2>
+
+    <div class="project">
+        <h3>Phân tích dữ liệu nhà đất</h3>
+        <p>Sử dụng Python để phân tích giá bất động sản.</p>
+    </div>
+
+    <div class="project">
+        <h3>Website Portfolio</h3>
+        <p>Thiết kế web cá nhân bằng HTML/CSS.</p>
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Liên hệ</h2>
+    <p><i class="fas fa-envelope"></i> haphuong@example.com</p>
+    <p><i class="fab fa-github"></i> github.com/yourusername</p>
+
+    <a href="https://github.com/yourusername" target="_blank">
+        <button>Xem GitHub</button>
+    </a>
+</section>
+
+<footer>
+    © 2026 Trần Hà Phương
+</footer>
+
+<!-- JS -->
+<script>
+/* Typing effect */
+const text = ["Sinh viên FTU", "Yêu thích Data & Finance", "Learning Coding mỗi ngày"];
+let i=0, j=0;
+let currentText="", isDeleting=false;
+
+function type() {
+    currentText = text[i];
+    if(!isDeleting){
+        document.getElementById("typing").innerHTML = currentText.substring(0,j++);
+        if(j > currentText.length){
+            isDeleting = true;
+            setTimeout(type,1000);
+            return;
+        }
+    } else {
+        document.getElementById("typing").innerHTML = currentText.substring(0,j--);
+        if(j < 0){
+            isDeleting = false;
+            i = (i+1) % text.length;
+        }
+    }
+    setTimeout(type, isDeleting ? 50 : 100);
+}
+type();
+
+/* Scroll animation */
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        const pos = sec.getBoundingClientRect().top;
+        if(pos < window.innerHeight - 100){
+            sec.classList.add("show");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
