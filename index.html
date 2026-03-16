@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <title>Portfolio - Trần Hà Phương</title>
 
-<!-- Font + Icon -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -16,38 +14,23 @@
     font-family:'Poppins', sans-serif;
 }
 
+/* 🌌 NỀN ẢNH ĐỘNG */
 body {
-    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #cc2b5e);
-    background-size: 400% 400%;
-    animation: gradientBG 12s ease infinite;
-    color: white;
-}
-
-@keyframes gradientBG {
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
-
-/* NAVBAR */
-nav {
-    position: fixed;
-    width:100%;
-    background: rgba(0,0,0,0.7);
-    padding:15px;
-    text-align:center;
-    z-index:1000;
-}
-
-nav a {
-    margin: 0 15px;
+    background: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmJncDQ2NmQzbTRvMjJoZmo3Y2RwNzBlbTVmMHlscmc0OHc3bzl2YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lcjvA848mj48ds48gk/giphy.gif") no-repeat center center/cover;
+    height:100vh;
     color:white;
-    text-decoration:none;
-    font-weight:600;
 }
 
-nav a:hover {
-    color:#6dd5ed;
+/* overlay làm mờ nền cho sang */
+body::before {
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.6);
+    z-index:-1;
 }
 
 /* HEADER */
@@ -60,74 +43,47 @@ header {
     text-align:center;
 }
 
+/* AVATAR */
 header img {
-    width:150px;
+    width:160px;
+    height:160px;
     border-radius:50%;
+    border:3px solid white;
     margin-bottom:20px;
-    animation: float 3s ease-in-out infinite;
+    object-fit:cover;
 }
 
-@keyframes float {
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
+/* TEXT */
+h1 {
+    font-size:40px;
+    font-weight:700;
 }
 
-.typing {
-    font-size:20px;
-    color:#6dd5ed;
+.subtitle {
     margin-top:10px;
+    font-size:18px;
+    color:#dcdcdc;
+    font-weight:300;
 }
 
 /* SECTION */
 section {
+    width:75%;
     margin:50px auto;
-    width:80%;
+    padding:30px;
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
-    padding:25px;
-    border-radius:15px;
-    opacity:0;
-    transform:translateY(50px);
-    transition:0.6s;
-}
-
-section.show {
-    opacity:1;
-    transform:translateY(0);
+    border-radius:20px;
+    line-height:1.8;
 }
 
 h2 {
-    color:#6dd5ed;
-    margin-bottom:10px;
+    margin-bottom:15px;
+    font-weight:600;
+    color:#aad8ff;
 }
 
-/* PROJECT CARD */
-.project {
-    margin:10px 0;
-    padding:15px;
-    background: rgba(0,0,0,0.5);
-    border-radius:10px;
-    transition:0.3s;
-}
-
-.project:hover {
-    transform:scale(1.05);
-}
-
-/* BUTTON */
-button {
-    padding:10px 20px;
-    border:none;
-    border-radius:10px;
-    background:#6dd5ed;
-    cursor:pointer;
-    margin-top:10px;
-}
-
-button:hover {
-    background:#2193b0;
-}
-
+/* FOOTER */
 footer {
     text-align:center;
     padding:20px;
@@ -138,114 +94,63 @@ footer {
 
 <body>
 
-<!-- NAVBAR -->
-<nav>
-    <a href="#about">Giới thiệu</a>
-    <a href="#skills">Kỹ năng</a>
-    <a href="#projects">Dự án</a>
-    <a href="#contact">Liên hệ</a>
-</nav>
-
-<!-- HEADER -->
 <header>
-    <img src="https://i.imgur.com/2DhmtJ4.png">
+    <!-- 👉 CHÈN ẢNH CỦA BẠN -->
+    <img src="https://i.imgur.com/pPw33Ib.jpeg">
+
     <h1>Trần Hà Phương</h1>
-    <div class="typing" id="typing"></div>
+    <div class="subtitle">
+        Sinh viên chuyên ngành Ngân hàng – Trường Đại học Ngoại Thương
+    </div>
 </header>
 
-<!-- ABOUT -->
-<section id="about">
+<section>
     <h2>Thông tin cá nhân</h2>
-    <p>Họ tên: Trần Hà Phương</p>
-    <p>Ngày sinh: 04/09/2006</p>
-    <p>Mã sinh viên: 2414320016</p>
-    <p>Trường: Đại học Ngoại Thương</p>
+    <p><b>Họ tên:</b> Trần Hà Phương</p>
+    <p><b>Ngày sinh:</b> 04/09/2006</p>
+    <p><b>Mã sinh viên:</b> 2414320016</p>
+    <p><b>Chuyên ngành:</b> Ngân hàng</p>
+    <p><b>Trường:</b> Đại học Ngoại Thương</p>
+</section>
+
+<section>
+    <h2>Giới thiệu</h2>
     <p>
-        Tôi là sinh viên có định hướng phát triển trong lĩnh vực tài chính và phân tích dữ liệu,
-        luôn chủ động học hỏi và phát triển bản thân.
+        Tôi là sinh viên chuyên ngành Ngân hàng tại Trường Đại học Ngoại Thương,
+        với định hướng phát triển trong lĩnh vực tài chính và phân tích dữ liệu.
+        Tôi tin rằng trong một thế giới không ngừng biến động, tri thức và sự kiên trì
+        chính là nền tảng vững chắc để tạo nên giá trị bền vững.
+    </p>
+
+    <p>
+        Hành trình học tập của tôi không chỉ dừng lại ở việc tiếp thu kiến thức,
+        mà còn là quá trình rèn luyện tư duy logic, khả năng thích nghi và tinh thần cầu tiến.
+        Tôi luôn sẵn sàng khám phá những cơ hội mới để hoàn thiện bản thân,
+        hướng tới trở thành một cá nhân có năng lực và trách nhiệm trong lĩnh vực tài chính – ngân hàng.
     </p>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-    <h2>Kỹ năng</h2>
-    <ul>
-        <li>Python</li>
-        <li>HTML, CSS, JavaScript</li>
-        <li>Data Analysis</li>
-    </ul>
+<section>
+    <h2>Định hướng phát triển</h2>
+    <p>
+        Trong ngắn hạn, tôi tập trung xây dựng nền tảng kiến thức chuyên môn vững chắc,
+        đồng thời phát triển kỹ năng phân tích và ứng dụng công nghệ trong tài chính.
+    </p>
+
+    <p>
+        Về dài hạn, tôi hướng tới trở thành một chuyên gia trong lĩnh vực tài chính – ngân hàng,
+        có khả năng đóng góp những giải pháp hiệu quả và mang lại giá trị thực tiễn cho xã hội.
+    </p>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-    <h2>Dự án</h2>
-
-    <div class="project">
-        <h3>Phân tích dữ liệu nhà đất</h3>
-        <p>Sử dụng Python để phân tích giá bất động sản.</p>
-    </div>
-
-    <div class="project">
-        <h3>Website Portfolio</h3>
-        <p>Thiết kế web cá nhân bằng HTML/CSS.</p>
-    </div>
-
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
+<section>
     <h2>Liên hệ</h2>
-    <p><i class="fas fa-envelope"></i> haphuong@example.com</p>
-    <p><i class="fab fa-github"></i> github.com/yourusername</p>
-
-    <a href="https://github.com/yourusername" target="_blank">
-        <button>Xem GitHub</button>
-    </a>
+    <p>Email: k63.2414320016@ftu.edu.vn</p>
 </section>
 
 <footer>
     © 2026 Trần Hà Phương
 </footer>
-
-<!-- JS -->
-<script>
-/* Typing effect */
-const text = ["Sinh viên FTU", "Yêu thích Data & Finance", "Learning Coding mỗi ngày"];
-let i=0, j=0;
-let currentText="", isDeleting=false;
-
-function type() {
-    currentText = text[i];
-    if(!isDeleting){
-        document.getElementById("typing").innerHTML = currentText.substring(0,j++);
-        if(j > currentText.length){
-            isDeleting = true;
-            setTimeout(type,1000);
-            return;
-        }
-    } else {
-        document.getElementById("typing").innerHTML = currentText.substring(0,j--);
-        if(j < 0){
-            isDeleting = false;
-            i = (i+1) % text.length;
-        }
-    }
-    setTimeout(type, isDeleting ? 50 : 100);
-}
-type();
-
-/* Scroll animation */
-const sections = document.querySelectorAll("section");
-
-window.addEventListener("scroll", () => {
-    sections.forEach(sec => {
-        const pos = sec.getBoundingClientRect().top;
-        if(pos < window.innerHeight - 100){
-            sec.classList.add("show");
-        }
-    });
-});
-</script>
 
 </body>
 </html>
